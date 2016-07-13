@@ -1,3 +1,4 @@
+#' @export
 summary.strata <- function (object, alpha.t = 0.05, effic = FALSE, nopt = FALSE, ...) {
     if (!inherits(object, "strata")) 
         stop("Not a legitimate strata object")

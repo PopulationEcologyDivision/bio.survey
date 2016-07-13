@@ -1,3 +1,4 @@
+#' @export
 summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), alpha.b = 0.05,prints=F,     ...) {
     if (!inherits(object, "boot")) 
         stop("Not a legitimate boot object, need to run boot.strat() first")

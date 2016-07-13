@@ -1,3 +1,4 @@
+#' @export
 print.assoc <- function (x, ...) {
     options(digits = 4)
     cat("\n", x$prefer.lab, "\n", "Test Statistic=", format(x$test.stat), 

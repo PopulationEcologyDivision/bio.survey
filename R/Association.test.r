@@ -1,3 +1,4 @@
+#' @export
 Association.test <- function (data, hydro, strata.group, species, nreps = 0, method = c("KS-Test", "CVM-Test")[1], subset,stat.plot=F) {
   #amc additions for characterizing the distribution of catch weighted effort and effort
     method.int <- charmatch(method, c("KS-Test", "CVM-Test"))

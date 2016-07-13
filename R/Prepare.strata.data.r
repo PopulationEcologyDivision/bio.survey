@@ -1,3 +1,4 @@
+#' @export
 Prepare.strata.data <- function (data) {
     #data in frame like Scallopsurveydata
     if(any(names(data) %in% 'STRATA.ID')) data$Strata <- data$STRATA.ID

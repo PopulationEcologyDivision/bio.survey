@@ -1,3 +1,4 @@
+#' @export
  Association.plot <- function (data, hydro, strata.group, species = NULL, subset, plot = TRUE, ...) {
     attach(data)
     if (!missing(subset)) {

@@ -1,3 +1,4 @@
+#' @export
 Stratify <- function (data.obj, strata.group, species, subset) {
     if (!inherits(data.obj, "strata.data")) 
         stop("Not a legitimate strata data object")

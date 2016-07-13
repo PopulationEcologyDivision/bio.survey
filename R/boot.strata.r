@@ -1,3 +1,4 @@
+#' @export
 boot.strata <- function (data, nless = 0, nresamp = 1, method = c("RESCALE",   "BWR", "NAIVE")) {
     if (!inherits(data, "strata")) 
         stop("Not a legitimate strata object, need to run Stratify() first")

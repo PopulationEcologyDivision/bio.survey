@@ -1,3 +1,4 @@
+#' @export
  rescale.boot <- function (X, nred) {
     n <- length(X)
     if (length(X) == nred) {

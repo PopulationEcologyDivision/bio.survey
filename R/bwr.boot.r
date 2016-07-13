@@ -1,3 +1,4 @@
+#' @export
 bwr.boot <- function (X, kh, ph, FUN, ..., simplify = TRUE) {
     if (is.character(FUN)) 
         FUN <- get(FUN, mode = "function")

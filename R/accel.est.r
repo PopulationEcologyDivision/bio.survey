@@ -1,3 +1,4 @@
+#' @export
 accel.est <- function (data) {
 	#for BCa conf.intervals
     no.strata <- length(unique(data$Strata))

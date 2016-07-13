@@ -1,3 +1,4 @@
+#' @export
 influential.strata <- function (object, Plot = TRUE, ...) {
     if (!inherits(object, "strata")) 
         stop("Not a legitimate strata object")

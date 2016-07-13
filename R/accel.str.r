@@ -1,3 +1,4 @@
+#' @export
 accel.str <- function (x.str) {
 	#for BCa conf.intervals
     if (any(x.str$nh <= 1)) {
