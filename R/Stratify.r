@@ -19,7 +19,6 @@ Stratify <- function (data.obj, strata.group, species, subset) {
     yhi <- split(species, data.obj$Strata)
     nh <- as.vector(sapply(yhi, length))
     nhws <- sapply(yhi,function(x) length(x[x>0]))
-
     res <- list(yhi = yhi, Strata = s.group.Strata, Nh = s.group.NH, 
         Wh = s.group.NH/sum(s.group.NH), nh = nh, call = m,nhws = nhws)
     class(res) <- "strata"
