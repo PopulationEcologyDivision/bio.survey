@@ -7,10 +7,10 @@ summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini
     boot.est <- mean(object$boot.means)
     ci.boot=list()
     if (CI.method == "Percentile") {
-       ci.boot[[1]] <- ci.boot.mean <- quantile(object$boot.means, probs = c(alpha.b/2, 
+        ci.boot[[1]] <- ci.boot.mean <- quantile(object$boot.means, probs = c(alpha.b/2, 
             (1 - alpha.b/2), 0.5))
        if(gini) ci.boot.gini <- quantile(object$gini, probs = c(alpha.b/2, 
-            (1 - alpha.b/2), 0.5))
+            (1 - alpha.b/2), 0.5),na.rm=T)
        if(dwao) ci.boot.dwao <- quantile(object$dwao, probs = c(alpha.b/2, 
             (1 - alpha.b/2), 0.5))
     }
