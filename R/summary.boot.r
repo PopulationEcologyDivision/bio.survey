@@ -1,5 +1,5 @@
 #' @export
-summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini=T, dwao=T, alpha.b = 0.05,prints=F,     ...) {
+summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini=T, alpha.b = 0.05,prints=F, big.ci=F,    ...) {
     if (!inherits(object, "boot")) 
         stop("Not a legitimate boot object, need to run boot.strata() first")
     options(digits = 4)
@@ -11,9 +11,8 @@ summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini
             (1 - alpha.b/2), 0.5))
        if(gini) ci.boot.gini <- quantile(object$gini, probs = c(alpha.b/2, 
             (1 - alpha.b/2), 0.5),na.rm=T)
-       if(dwao) ci.boot.dwao <- quantile(object$dwao, probs = c(alpha.b/2, 
-            (1 - alpha.b/2), 0.5))
-    }
+       if(big.ci) return(quantile(object$boot.means, probs = seq(0.01,0.99,by=0.01)))
+      }
     if (CI.method == "BC") {
 
         loc.bc <- sum(object$boot.means < boot.est)
@@ -24,7 +23,10 @@ summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini
         z0 <- qnorm(z0/length(object$boot.means))
         probs.z0 <- pnorm(qnorm(c(alpha.b/2, (1 - alpha.b/2), 
             0.5)) + 2 * z0)
-        ci.boot <- quantile(object$boot.means, probs = probs.z0)
+        ci.boot[[1]] <- quantile(object$boot.means, probs = probs.z0)
+       if(gini) ci.boot.gini <- quantile(object$gini, probs = c(alpha.b/2, 
+            (1 - alpha.b/2), 0.5),na.rm=T)
+   
 
     }
     if (CI.method == "BCa") {
@@ -56,7 +58,6 @@ summary.boot <- function (object, CI.method = c("Percentile", "BC", "BCa"), gini
         object$method, "\n")
    }
    if(gini) ci.boot[[2]] = ci.boot.gini
-   if(dwao) ci.boot[[3]] = ci.boot.dwao
    
     return(ci.boot)
 }

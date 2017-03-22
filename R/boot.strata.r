@@ -8,9 +8,9 @@ boot.strata <- function (data, nless = 0, nresamp = 1, method = c("RESCALE",   "
     res3 <- summary(res1)
     if (nresamp == 0) 
         stop("No resampling done.")
-    out <- matrix(0, nrow = nresamp + 1, ncol = 4, dimnames = list(c("Actual", 
-        1:nresamp), c("Mean", "Variance",'gini','dwao')))
-    out[1, ] <- c(res3$yst, (res3$se.yst)^2,res3$gini,res3$dwao)
+    out <- matrix(0, nrow = nresamp + 1, ncol = 3, dimnames = list(c("Actual", 
+        1:nresamp), c("Mean", "Variance",'gini')))
+    out[1, ] <- c(res3$yst, (res3$se.yst)^2,res3$gini)
     if (method == "RESCALE") {
         res1$nh <- res1$nh - nless
         for (i in 1:nresamp) {
@@ -31,12 +31,13 @@ boot.strata <- function (data, nless = 0, nresamp = 1, method = c("RESCALE",   "
                 simplify = FALSE)
             yhib[res1$nh == 1] <- res1$yhi[res1$nh == 1]
             nhws = sapply(yhib,FUN=function(x) sum(x>0))
+            
             out[i + 1, ] <- c(sum(res1$Wh * as.vector(sapply(yhib, 
                 mean)), na.rm = TRUE), (sum((((res1$Nh * (res1$Nh - 
                 as.vector(sapply(yhib, length))))/sum(res1$Nh)^2) * 
                 (as.vector(sapply(yhib, var))))/as.vector(sapply(yhib, 
                 length)), na.rm = TRUE)),gini(x=as.vector(sapply(yhib, 
-                mean)),y=res1$Nh),sum(res1$Wh*(nhws / res1$nh)) * sum(res1$Nh) * 0.011801 )
+                mean)),y=res1$Nh))
         }
     }
     if (method == "NAIVE") {
@@ -52,7 +53,7 @@ boot.strata <- function (data, nless = 0, nresamp = 1, method = c("RESCALE",   "
     }
     res <- list(orig.mean = out[1, 1], orig.var = out[1, 2], 
         boot.means = out[c(2:(nresamp + 1)), 1], boot.vars = out[c(2:(nresamp + 
-            1)), 2],gini = out[c(2:(nresamp + 1)), 3], dwao = out[c(2:(nresamp + 1)), 4], accel = accel.str(res1), call = call, method = method)
+            1)), 2],gini = out[c(2:(nresamp + 1)), 3], accel = accel.str(res1), call = call, method = method)
     oldClass(res) <- "boot"
     return(res)
 }
