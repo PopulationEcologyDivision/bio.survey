@@ -133,7 +133,7 @@ if(min.95.hv>max.95.hv) browser()
 
     res <- list(test.stat = test.stat, test.stat.rep = c(test.stat, 
         test.stat.rep), prefer.lab = prefer.lab, prefer2.lab = c("Randomization Test"), 
-        prefer3.lab = c("P-level"), location.of.max.gt=locs,p=round(sum(test.stat <= test.stat.rep)/length(test.stat.rep),4),yst1=yst,ranges<-c(min.50,med.50,max.50),hydro.ranges<-c(min.95.hv,med.hv.50,max.95.hv), descrip = "Association Analysis")
+        prefer3.lab = c("P-level"), location.of.max.gt=locs,p=round(sum(test.stat <= test.stat.rep)/length(test.stat.rep),4),yst1=yst,min.med.max.gt = c(min.50,med.50,max.50),min.med.max.hydro = c(min.95.hv,med.hv.50,max.95.hv), descrip = "Association Analysis")
     class(res) <- "assoc"
     res
 }
