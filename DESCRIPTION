@@ -13,6 +13,6 @@ Imports:
 License: MIT
 Encoding: UTF-8
 LazyData: true
-Remotes: github::Beothuk/bio.base, github::Beothuk/bio.utilities, github::Beothuk/bio.polygons
+Remotes: github::PopulationEcologyDivision/bio.base, github::PopulationEcologyDivision/bio.utilities, github::PopulationEcologyDivision/bio.polygons
 RoxygenNote: 5.0.1.9000
-URL: https://github.com/Beothuk/bio.survey/
+URL: https://github.com/PopulationEcologyDivision/bio.survey/
