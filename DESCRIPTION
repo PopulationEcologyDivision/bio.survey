@@ -1,6 +1,6 @@
 Package: bio.survey
 Title: Stratified Survey Analysis Tools for DFO Maritimes
-Version: 20190430
+Version: 2019.04.30
 Authors@R: c(
     person("Stephen", "Smith", email = "retired@dfo-mpo.gc.ca", role = c("aut","cre")),
     person("Mike", "McMahon", email = "Mike.McMahon@dfo-mpo.gc.ca", role = "com"))
