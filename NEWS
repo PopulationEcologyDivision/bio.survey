@@ -6,5 +6,6 @@ Changes:
 print.strata as exported functions
 * removes dependencies on bio.* package universe
 * adds Mike McMahon as the compiler
+* add Mar.utils::updateCheck
 0.0.0.9000
 * initial commit of this package to github
