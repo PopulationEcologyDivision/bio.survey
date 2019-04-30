@@ -1,4 +1,5 @@
 #' @export
+
 summary.assoc <- function (object, ...) {
     options(digits = 4)
     cat("\n", object$prefer.lab, "\n", "Test Statistic=", format(object$test.stat), 

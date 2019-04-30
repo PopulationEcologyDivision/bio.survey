@@ -1,4 +1,5 @@
 #' @export
+
 print.strata <- function (x, ...) {
     out.table <- matrix(nrow = length(x$Wh), ncol = 7, dimnames = list(NULL, 
         c("Strata", "Sets", "Wh", "Mean", "Std. Err.", "RE(%)","Sets.w.Spec")))

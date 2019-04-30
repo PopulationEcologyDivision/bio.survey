@@ -1,0 +1,10 @@
+bio.survey 
+==============
+Changes:
+20190430
+* adds summary.assoc, summary.boot, summary.strata, print.assoc, print.boot and 
+print.strata as exported functions
+* removes dependencies on bio.* package universe
+* adds Mike McMahon as the compiler
+0.0.0.9000
+* initial commit of this package to github

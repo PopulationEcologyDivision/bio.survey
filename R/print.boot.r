@@ -1,4 +1,5 @@
 #' @export
+
 print.boot <- function (x, ...) {
     options(digits = 4)
     cat("\n", "Original Mean=", format(x$orig.mean), "\n", "Original Variance", 
